@@ -11,5 +11,13 @@
 
     <artifactId>qing-upms-service</artifactId>
 
+    <dependencies>
 
+        <dependency>
+            <groupId>com.wangan.qing</groupId>
+            <artifactId>qing-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
 </project>
