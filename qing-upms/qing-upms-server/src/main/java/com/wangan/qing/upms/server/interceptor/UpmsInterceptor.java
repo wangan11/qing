@@ -25,6 +25,7 @@ public class UpmsInterceptor extends HandlerInterceptorAdapter {
 		super();
 	}
 
+
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		request.setAttribute("QING_OSS_ALIYUN_OSS_POLICY",QING_OSS_ALIYUN_OSS_POLICY);
