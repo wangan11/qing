@@ -80,7 +80,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dynamicDataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath:com/wangan/qing/upms/dao/mapper/*Mapper.xml"/>
+        <property name="mapperLocations" value="classpath:com/wangan/qing/upms/service/dao/mapper/*Mapper.xml"/>
     </bean>
 
     <bean id="mapperScannerConfiger" class="org.mybatis.spring.mapper.MapperScannerConfigurer">

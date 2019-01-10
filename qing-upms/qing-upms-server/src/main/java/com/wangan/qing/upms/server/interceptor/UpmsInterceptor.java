@@ -1,10 +1,13 @@
 package com.wangan.qing.upms.server.interceptor;
 
 import com.wangan.qing.common.util.PropertiesFileUtil;
+import com.wangan.qing.upms.dao.model.UpmsUser;
+import com.wangan.qing.upms.rpc.api.UpmsApiService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -20,6 +23,8 @@ public class UpmsInterceptor extends HandlerInterceptorAdapter {
 	private static final Logger log= LoggerFactory.getLogger(UpmsInterceptor.class);
 	public static final String QING_OSS_ALIYUN_OSS_POLICY=PropertiesFileUtil.getInstance("qing-oss-client").get("qing.oss.aliyun.oss.policy");;
 
+	@Autowired
+	UpmsApiService upmsApiService;
 
 	public UpmsInterceptor() {
 		super();
@@ -37,8 +42,10 @@ public class UpmsInterceptor extends HandlerInterceptorAdapter {
 		}
 		Subject subject = SecurityUtils.getSubject();
 		String username = subject.getPrincipal().toString();
+		UpmsUser upmsUser = upmsApiService.findUserByUsername(username);
+		request.setAttribute("upmsUser",upmsUser);
+		return true;
 
-		return super.preHandle(request, response, handler);
 	}
 
 	@Override

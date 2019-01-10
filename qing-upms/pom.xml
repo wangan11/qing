@@ -14,6 +14,9 @@
     <modules>
         <module>qing-upms-server</module>
         <module>qing-upms-service</module>
+        <module>qing-upms-rpc-api</module>
+        <module>qing-umps-dao</module>
+        <module>qing-upms-client</module>
     </modules>
 
 

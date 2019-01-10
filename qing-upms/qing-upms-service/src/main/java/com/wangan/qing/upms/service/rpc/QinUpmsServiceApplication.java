@@ -1,4 +1,4 @@
-package com.wangan.qing.upms.rpc;
+package com.wangan.qing.upms.service.rpc;
 
 public class QinUpmsServiceApplication {
 
