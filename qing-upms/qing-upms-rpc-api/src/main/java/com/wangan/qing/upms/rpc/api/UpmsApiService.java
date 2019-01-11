@@ -9,4 +9,5 @@ import com.wangan.qing.upms.dao.model.UpmsUser;
 public interface UpmsApiService {
 
 	UpmsUser findUserByUsername(String username);
+
 }

@@ -12,6 +12,6 @@
     <dubbo:registry  address="zookeeper://192.168.140.123:2181"/>
 
     <dubbo:reference id="upmsApiService" interface="com.wangan.qing.upms.rpc.api.UpmsApiService"/>
-
+    <dubbo:reference interface="com.wangan.qing.upms.rpc.api.UpmsLogService" id="upmsLogService"/>
 
 </beans>

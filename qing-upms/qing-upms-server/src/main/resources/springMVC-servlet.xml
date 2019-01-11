@@ -31,12 +31,12 @@
     <!-- 根目录'/'对应页面 -->
     <mvc:view-controller path="/" view-name="/index.jsp"/>
 
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/manage/**"/>
-            <bean class="com.wangan.qing.upms.server.interceptor.UpmsInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/manage/**"/>-->
+            <!--<bean class="com.wangan.qing.upms.server.interceptor.UpmsInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
     <!-- Jsp视图 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

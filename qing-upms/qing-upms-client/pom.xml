@@ -10,11 +10,37 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>qing-upms-client</artifactId>
+    <packaging>jar</packaging>
+
+
     <dependencies>
         <dependency>
             <groupId>com.wangan.qing</groupId>
             <artifactId>qing-common</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wangan.qing</groupId>
+            <artifactId>qing-upms-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wangan.qing</groupId>
+            <artifactId>qing-upms-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!--servlet-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

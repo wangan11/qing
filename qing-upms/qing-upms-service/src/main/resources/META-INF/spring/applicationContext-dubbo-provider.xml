@@ -17,4 +17,7 @@
     <bean id="upmsApiService" class="com.wangan.qing.upms.service.rpc.service.impl.UpmsApiServiceImpl"/>
     <dubbo:service interface="com.wangan.qing.upms.rpc.api.UpmsApiService" ref="upmsApiService" timeout="10000"/>
 
+    <bean id="upmsLogService" class="com.wangan.qing.upms.service.rpc.service.impl.UpmsLogServiceImpl"/>
+    <dubbo:service interface="com.wangan.qing.upms.rpc.api.UpmsLogService" ref="upmsLogService" timeout="10000"/>
+
 </beans>
