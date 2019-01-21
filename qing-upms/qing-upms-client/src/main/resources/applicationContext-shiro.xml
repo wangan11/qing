@@ -9,6 +9,10 @@
 
    <!-- <context:property-placeholder location="classpath*:zheng-upms-client.properties"/>-->
 
+    <context:property-placeholder location="classpath*:qing-upms-client.properties"/>
 
 
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+
+    </bean>
 </beans>
