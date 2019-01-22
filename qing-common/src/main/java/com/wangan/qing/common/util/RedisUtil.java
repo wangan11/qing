@@ -8,7 +8,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisUtil.class);
-    private static String IP=PropertiesFileUtil.getInstance("redis").get("master.redis.ip");
+    private static String IP = PropertiesFileUtil.getInstance("redis").get("master.redis.ip");
     private static int PORT = PropertiesFileUtil.getInstance("redis").getInt("master.redis.port");
 
     // 访问密码
@@ -30,7 +30,7 @@ public class RedisUtil {
 
     private static JedisPool jedisPool = null;
 
-    private static void initialPool(){
+    private static void initialPool() {
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxTotal(MAX_ACTIVE);
         config.setMaxIdle(MAX_IDLE);
@@ -39,16 +39,16 @@ public class RedisUtil {
         jedisPool = new JedisPool(config, IP, PORT, TIMEOUT);
     }
 
-    private static synchronized void poolInit(){
-        if(null==jedisPool){
+    private static synchronized void poolInit() {
+        if (null == jedisPool) {
             initialPool();
         }
     }
 
-    private static synchronized Jedis getJedis(){
+    public static synchronized Jedis getJedis() {
         poolInit();
         Jedis jedis = null;
-        if(null!=jedisPool){
+        if (null != jedisPool) {
             jedis = jedisPool.getResource();
             try {
                 jedis.auth(PASSWORD);
@@ -58,4 +58,37 @@ public class RedisUtil {
         }
         return jedis;
     }
+
+    public synchronized static void set(String key, String value, int seconds) {
+        try {
+            Jedis jedis = getJedis();
+            jedis.setex(key, seconds, value);
+            jedis.close();
+        } catch (Exception e) {
+            LOGGER.info("set jedis value error:" + e);
+        }
+    }
+
+    public synchronized static String get(String key) {
+        Jedis jedis = getJedis();
+        if(jedis==null){
+            return null;
+        }
+        String value = jedis.get(key);
+        jedis.close();
+        return value;
+    }
+
+    public synchronized static void remove(String key){
+        Jedis jedis=getJedis();
+        jedis.del(key);
+        jedis.close();
+    }
+
+    public synchronized static void lrem(String key,long count,String vlaue){
+        Jedis jedis=getJedis();
+        jedis.lrem(key,count,vlaue);
+        jedis.close();
+    }
+
 }

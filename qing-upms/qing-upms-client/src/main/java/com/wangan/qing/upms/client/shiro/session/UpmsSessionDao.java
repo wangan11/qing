@@ -1,11 +1,14 @@
 package com.wangan.qing.upms.client.shiro.session;
 
+import com.wangan.qing.common.util.RedisUtil;
+import com.wangan.qing.upms.client.util.SerializableUtil;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.ValidatingSession;
 import org.apache.shiro.session.mgt.eis.CachingSessionDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import redis.clients.jedis.Jedis;
 
 import java.io.Serializable;
 import java.util.*;
