@@ -23,7 +23,7 @@ public class UpmsSession extends SimpleSession {
 
         private String info;
 
-       private OnlineStatus(String info) {
+        OnlineStatus(String info) {
             this.info=info;
         }
 
@@ -35,6 +35,7 @@ public class UpmsSession extends SimpleSession {
 
     // 用户浏览器类型
     private String userAgent;
+
     // 在线状态
     private OnlineStatus status = OnlineStatus.off_line;
 
