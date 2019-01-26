@@ -66,5 +66,12 @@
         </if>
     </select>
 
+    <select id="selectByPrimaryKey" resultType="com.wangan.qing.upms.dao.model.UpmsUser">
+        select
+        <include refid="Base_Column_List"/>
+        from  upms_user
+        WHERE user_id=#{userId,jdbcType=INTEGER}
+    </select>
+
 
 </mapper>

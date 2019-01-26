@@ -1,6 +1,5 @@
 package com.wangan.qing.upms.dao.mapper;
 
-import com.wangan.qing.upms.dao.model.UpmsLog;
 import com.wangan.qing.upms.dao.model.UpmsUser;
 import com.wangan.qing.upms.dao.model.UpmsUserExample;
 
@@ -13,5 +12,7 @@ import java.util.List;
 public interface UpmsUserMapper {
 
 	List<UpmsUser> selectByExample(UpmsUserExample example);
+
+	UpmsUser selectByPrimaryKey(Integer userId);
 
 }
