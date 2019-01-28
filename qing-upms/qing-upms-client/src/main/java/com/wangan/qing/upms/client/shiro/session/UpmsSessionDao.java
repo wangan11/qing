@@ -2,6 +2,7 @@ package com.wangan.qing.upms.client.shiro.session;
 
 import com.wangan.qing.common.util.RedisUtil;
 import com.wangan.qing.upms.client.util.SerializableUtil;
+import com.wangan.qing.upms.common.base.UpmsConstant;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.ValidatingSession;

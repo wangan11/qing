@@ -51,7 +51,7 @@ public class RedisUtil {
         if (null != jedisPool) {
             jedis = jedisPool.getResource();
             try {
-                jedis.auth(PASSWORD);
+//                jedis.auth(PASSWORD);
             } catch (Exception e) {
                 LOGGER.error("Get jedis error : " + e);
             }
@@ -91,4 +91,20 @@ public class RedisUtil {
         jedis.close();
     }
 
+    /**
+     * sadd
+     * @param key
+     * @param value
+     * @param seconds
+     */
+    public synchronized static void sadd(String key, String value, int seconds) {
+        try {
+            Jedis jedis = RedisUtil.getJedis();
+            jedis.sadd(key, value);
+            jedis.expire(key, seconds);
+            jedis.close();
+        } catch (Exception e) {
+            LOGGER.error("sadd error : " + e);
+        }
+    }
 }
